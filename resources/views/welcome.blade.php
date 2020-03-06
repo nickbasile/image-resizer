@@ -20,11 +20,17 @@
             <section class="bg-white max-w-2xl border border-gray-400 p-12 rounded">
                 <h1 class="text-3xl text-gray-900 font-bold leading-tight">Image Resizer</h1>
                 <h2 class="text-xl text-gray-700 leading-tight mt-1">Compress and optimize your images.</h2>
-                <form action="" method="POST" class="mt-6">
+                <form action="/image" method="POST" enctype="multipart/form-data" class="mt-6">
                     @csrf
                     <div class="flex flex-col">
-                        <label for="files" class="text-md font-bold tracking-wide text-gray-700">Upload Image</label>
-                        <input type="file" id="files" name="files" multiple class="mt-2">
+                        <label for="images[]" class="text-md font-bold tracking-wide text-gray-700">Upload Image</label>
+                        <input type="file" id="files" name="images[]" multiple  class="mt-2">
+                        @error('images')
+                            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                        @error('images.*')
+                            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
                     <button type="submit" class="bg-indigo-500 px-4 py-2 mt-4 text-white font-bold">Submit</button>
                 </form>
