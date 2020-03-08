@@ -52,7 +52,7 @@
                 @foreach($images as $i => $image)
                     <a href="{{$image['path']}}" download class="w-full h-64 flex items-center justify-center group bg-image-{{$i}}">
                         <div class="w-full h-full bg-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in-out">
-                            <button class="bg-indigo-500 hover:bg-indigo-700 transition-all duration-200 ease-in-out px-4 py-2 text-white font-bold">Download</button>
+                            <button class="bg-white hover:bg-gray-200 text-indigo-500 font-bold transition-all duration-200 ease-in-out px-4 py-2">Download</button>
                         </div>
                     </a>
                 @endforeach
