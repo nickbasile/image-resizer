@@ -17,6 +17,7 @@ class Image extends Model
     {
         $file_name = $image->getClientOriginalName();
 
+        //Enables large image processing
         ini_set('memory_limit', '512M');
 
         SpatieImage::load($image)

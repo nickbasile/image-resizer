@@ -40,13 +40,13 @@
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 transition-all duration-200 ease-in-out px-4 py-2 mt-4 text-white font-bold">Submit</button>
+                    <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 transition-all duration-200 ease-in-out px-4 py-2 mt-4 text-white font-bold">Upload</button>
                 </form>
             </section>
+
             <section class="mt-4">
                 <p class="text-gray-600 text-sm text-center">Built by <a href="https://twitter.com/nickjbasile" target="_blank" class="text-blue-500 hover:text-blue-700 transition-all duration-100 ease-in-out underline">Nick Basile</a>. Powered by <a href="https://github.com/spatie/image" target="_blank" class="text-blue-500 hover:text-blue-700 transition-all duration-100 ease-in-out underline">Spatie image</a>.</p>
             </section>
-
 
             <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-16 container mx-auto -m-4">
                 @foreach($images as $i => $image)
@@ -58,6 +58,11 @@
                 @endforeach
             </section>
 
+            @if(session()->has('success'))
+            <div id="success-message" class="z-10 fixed bottom-0 right-0 mb-8 mr-8 bg-green-100 border border-green-700 rounded px-4 py-3 transition-all duration-200 ease-in-out">
+                <p class="text-green-700">{{session('success')}}</p>
+            </div>
+            @endif
         </main>
     </body>
 </html>
