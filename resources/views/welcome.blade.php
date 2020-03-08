@@ -48,15 +48,13 @@
             </section>
 
 
-            <section class="grid grid-cols-4 mt-16 container mx-auto -m-4">
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-16 container mx-auto -m-4">
                 @foreach($images as $i => $image)
-                    <div class="w-full p-4 relative">
-                        <a href="{{$image['path']}}" download class="w-full h-64 flex items-center justify-center group bg-image-{{$i}}">
-                            <div class="w-full h-full bg-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in-out">
-                                <button class="bg-indigo-500 hover:bg-indigo-700 transition-all duration-200 ease-in-out px-4 py-2 text-white font-bold">Download</button>
-                            </div>
-                        </a>
-                    </div>
+                    <a href="{{$image['path']}}" download class="w-full h-64 flex items-center justify-center group bg-image-{{$i}}">
+                        <div class="w-full h-full bg-overlay flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 ease-in-out">
+                            <button class="bg-indigo-500 hover:bg-indigo-700 transition-all duration-200 ease-in-out px-4 py-2 text-white font-bold">Download</button>
+                        </div>
+                    </a>
                 @endforeach
             </section>
 
