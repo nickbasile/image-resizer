@@ -13,8 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::post('/image', 'ImageController@optimize');
+Route::get('/', 'ImageController@index');
+Route::post('/', 'ImageController@store');
