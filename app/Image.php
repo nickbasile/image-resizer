@@ -13,6 +13,13 @@ class Image extends Model
         'path',
     ];
 
+    protected static function booted()
+    {
+        static::deleting(function(Image $image) {
+            Storage::disk('public')->delete($image->path);
+        });
+    }
+
     public static function saveImage($image)
     {
         $file_name = $image->getClientOriginalName();
@@ -28,9 +35,9 @@ class Image extends Model
 
         Storage::putFileAs('public/resized', $image, $file_name);
 
-        Image::create([
+        Image::updateOrCreate([
             'file_name' => $file_name,
-            'path' => asset('resized/' . $file_name),
+            'path' => '/resized/' . $file_name,
         ]);
     }
 }
