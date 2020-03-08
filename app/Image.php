@@ -33,7 +33,7 @@ class Image extends Model
             ->optimize()
             ->save();
 
-        Storage::putFileAs('public/resized', $image, $file_name);
+        Storage::disk('public')->putFileAs('resized', $image, $file_name);
 
         Image::updateOrCreate([
             'file_name' => $file_name,
