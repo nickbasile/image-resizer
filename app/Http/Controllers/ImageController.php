@@ -22,6 +22,7 @@ class ImageController extends Controller
             'images.*' => 'image',
             'options' => 'required|array',
             'options.width' => 'required|numeric',
+            'options.height' => 'required|numeric',
         ]);
 
 
