@@ -20,7 +20,7 @@ class Image extends Model
         });
     }
 
-    public static function saveImage($image)
+    public static function saveImage($image, $options)
     {
         $file_name = $image->getClientOriginalName();
 
@@ -28,8 +28,8 @@ class Image extends Model
         ini_set('memory_limit', '512M');
 
         SpatieImage::load($image)
-            ->width(1200)
-            ->height(600)
+            ->width($options['width'] ?? 1440)
+            ->height($options['height'] ?? 1024)
             ->optimize()
             ->save();
 

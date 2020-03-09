@@ -31,8 +31,8 @@
                 <form action="/" method="POST" enctype="multipart/form-data" class="mt-6">
                     @csrf
                     <div class="flex flex-col">
-                        <label for="images[]" class="text-md font-bold tracking-wide text-gray-700">Upload Image</label>
-                        <input type="file" id="files" name="images[]" multiple accept="image/*" class="mt-2">
+                        <label for="images" class="text-md font-bold tracking-wide text-gray-700">Upload Image</label>
+                        <input type="file" id="images" name="images[]" multiple accept="image/*" class="mt-2">
                         @error('images')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -40,7 +40,23 @@
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 transition-all duration-200 ease-in-out px-4 py-2 mt-4 text-white font-bold">Upload</button>
+                    <div class="flex flex-col md:flex-row">
+                        <div class="flex flex-col mt-3 w-full md:w-1/3 md:pr-6">
+                            <label for="width" class="text-md font-bold tracking-wide text-gray-700">Width</label>
+                            <input type="number" id="width" name="options[width]" value="{{old('options.width', 1440)}}" class="mt-2 px-3 py-2 bg-gray-200 text-gray-900">
+                            @error('options.width')
+                            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="flex flex-col mt-3 w-full md:w-1/3 md:pr-6">
+                            <label for="height" class="text-md font-bold tracking-wide text-gray-700">Height</label>
+                            <input type="number" id="height" name="options[height]" value="{{old('options.height', 1024)}}" class="mt-2 px-3 py-2 bg-gray-200 text-gray-900">
+                            @error('options.height')
+                            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 transition-all duration-200 ease-in-out px-4 py-2 mt-6 text-white font-bold">Upload</button>
                 </form>
             </section>
 

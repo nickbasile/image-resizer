@@ -17,13 +17,16 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'images' => 'required|array',
             'images.*' => 'image',
+            'options' => 'required|array',
+            'options.width' => 'required|numeric',
         ]);
 
+
         foreach ($request->file('images') as $image) {
-            Image::saveImage($image);
+            Image::saveImage($image, $data['options']);
         }
 
         return back()->with(['success' => 'Images optimized successfully!']);
