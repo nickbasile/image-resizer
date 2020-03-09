@@ -41,16 +41,16 @@
                         @enderror
                     </div>
                     <div class="flex flex-col md:flex-row">
-                        <div class="flex flex-col mt-3 w-full md:w-1/3 md:pr-6">
+                        <div class="flex flex-col mt-3 md:pr-6">
                             <label for="width" class="text-md font-bold tracking-wide text-gray-700">Width</label>
-                            <input type="number" id="width" name="options[width]" value="{{old('options.width', 1440)}}" class="mt-2 px-3 py-2 bg-gray-200 text-gray-900">
+                            <input type="number" id="width" name="options[width]" value="{{old('options.width', 1440)}}" class="mt-2 px-3 py-2 bg-gray-200 text-gray-900 w-full md:w-24">
                             @error('options.width')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="flex flex-col mt-3 w-full md:w-1/3 md:pr-6">
+                        <div class="flex flex-col mt-3 md:pr-6">
                             <label for="height" class="text-md font-bold tracking-wide text-gray-700">Height</label>
-                            <input type="number" id="height" name="options[height]" value="{{old('options.height', 1024)}}" class="mt-2 px-3 py-2 bg-gray-200 text-gray-900">
+                            <input type="number" id="height" name="options[height]" value="{{old('options.height', 1024)}}" class="mt-2 px-3 py-2 bg-gray-200 text-gray-900 w-full md:w-24">
                             @error('options.height')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                             @enderror
